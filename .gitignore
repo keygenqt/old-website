@@ -4,8 +4,8 @@ vendor
 .idea
 .env
 
-frontend/web/video/*
-
+frontend/web/images/*
+frontend/web/books/*
 frontend/web/assets/*
 frontend/runtime/*
 
