@@ -1,0 +1,42 @@
+{
+  "name": "glidejs",
+  "version": "2.1.0",
+  "description": "Glide is a responsive and touch-friendly jQuery slider. Based on CSS3 transitions with fallback to older broswers. It's simple, lightweight and fast.",
+  "main": "dist/glide.js",
+  "author": "Jędrzej Chałubek <jedrzej.chalubek@gmail.com>",
+  "homepage": "http://glide.jedrzejchalubek.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jedrzejchalubek/Glide.js.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "simple",
+    "lightweight",
+    "fast",
+    "slider",
+    "carousel",
+    "jQuery",
+    "CSS3",
+    "transitions",
+    "touch",
+    "responsive"
+  ],
+  "dependencies": {
+    "jquery": "2.2.*"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-less": "*",
+    "grunt-less-to-sass": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jasmine": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "matchdep": "*",
+    "module": "0.0.1"
+  }
+}

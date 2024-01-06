@@ -1,0 +1,40 @@
+body div .vertical-menu .vertical-menu-show {
+    background: #232739;
+}
+
+body div .vertical-menu-ul li.active a,
+body div .vertical-menu-ul li.active a:hover,
+body div .yii2-breadcrumbs-panel .breadcrumbs-panel,
+body div .vertical-menu .vertical-menu-show ul li:first-child {
+    background: #4F5365;
+}
+
+body div .vertical-menu-ul li.active li a,
+body div .vertical-menu-ul li a {
+    color: #232739;
+}
+
+body div .vertical-menu-ul li.active li:not(.active) a:hover,
+body div .vertical-menu-ul li a:hover {
+    background: #dadada;
+}
+
+body div .vertical-menu-ul li.active li:not(.active) a {
+    background: white;
+}
+
+body div .vertical-menu-ul li.active li.active a {
+    background: #4F5365;
+}
+
+body div .vertical-menu-ul ul li:first-child a {
+    border-top: 5px solid black !important;
+}
+
+body div .vertical-menu-ul li li a {
+    border-left: 4px solid black !important;
+}
+
+body div .vertical-menu-ul ul li:last-child a {
+    border-bottom: 4px solid black !important;
+}

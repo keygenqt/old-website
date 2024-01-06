@@ -1,0 +1,11 @@
+[{
+  "relation": [
+	  "https://keygenqt.com/licenses"
+  ],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.keygenqt.mylibrary",
+    "sha256_cert_fingerprints":
+    ["DD:D2:4B:A0:8A:75:B8:AD:DE:B0:4D:3B:C0:85:BD:CD:34:6B:3C:1D:AA:1E:6D:86:0B:EC:7A:B6:6B:D6:0F:69"]
+  }
+}]

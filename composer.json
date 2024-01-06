@@ -1,0 +1,106 @@
+{
+  "name": "yiisoft/yii2-app-basic",
+  "description": "Yii 2 Basic Project Template",
+  "keywords": ["yii2", "framework", "basic", "project template"],
+  "homepage": "http://www.yiiframework.com/",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+    "forum": "http://www.yiiframework.com/forum/",
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "irc": "irc://irc.freenode.net/yii",
+    "source": "https://github.com/yiisoft/yii2"
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.6.0",
+    "yiisoft/yii2": "~2.0.14",
+    "keygenqt/yii2-datepicker": "*",
+    "kartik-v/yii2-widget-switchinput": "*",
+    "2amigos/yii2-switch-widget": "~1.0",
+    "yidas/yii2-fontawesome": "~5.0",
+
+    "keygenqt/yii2-image-ajax": "1.0.*",
+    "bower-asset/dropzone": "5.7.0",
+
+    "keygenqt/yii2-autocomplete-ajax": "1.0.*",
+    "keygenqt/yii2-image-handler": "1.0.*",
+    "keygenqt/yii2-breadcrumbs-panel": "@dev",
+    "keygenqt/yii2-last-page": "@dev",
+    "keygenqt/yii2-html": "@dev",
+    "keygenqt/yii2-link-pager-points": "@dev",
+    "keygenqt/yii2-vertical-menu": "1.0.*",
+    "keygenqt/yii2-panel-count": "1.0.*",
+    "keygenqt/yii2-json-form": "1.0.*",
+    "keygenqt/yii2-share2": "1.0.*",
+    "keygenqt/yii2-highcharts": "1.0.*",
+    "keygenqt/yii2-sceditor": "1.0.*",
+    "keygenqt/yii2-fancybox3": "1.0.*"
+  },
+  "require-dev": {
+    "yiisoft/yii2-jui": "*",
+    "yiisoft/yii2-debug": "~2.1.0",
+    "yiisoft/yii2-gii": "~2.1.0",
+    "yiisoft/yii2-faker": "~2.0.0",
+    "codeception/codeception": "^4.0",
+    "codeception/verify": "~0.5.0 || ~1.1.0",
+    "codeception/specify": "~0.4.6",
+    "symfony/browser-kit": ">=2.7 <=4.2.4",
+    "codeception/module-filesystem": "^1.0.0",
+    "codeception/module-yii2": "^1.0.0",
+    "codeception/module-asserts": "^1.0.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer" : true
+    },
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "mkdir -p admin/runtime",
+      "mkdir -p admin/web/assets",
+      "mkdir -p frontend/runtime",
+      "mkdir -p frontend/web/assets",
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "yii\\composer\\Installer::postInstall"
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+
+    },
+    "yii\\composer\\Installer::postInstall": {
+      "generateCookieValidationKey": [
+        "config/web.php"
+      ],
+      "copyFiles": [
+          {
+              "common/config/_db.php": "common/config/db.php"
+          }
+      ],
+      "setPermission": [
+        {
+          "admin/runtime": "0777",
+          "admin/web/assets": "0777",
+          "frontend/runtime": "0777",
+          "frontend/web/assets": "0777",
+          "yii": "0755"
+        }
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
