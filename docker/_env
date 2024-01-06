@@ -5,3 +5,8 @@ DB_DATABASE=old_website
 DB_USER=user_name
 DB_USER_PASSWORD=user_pass
 DB_ROOT_PASSWORD=root_pass
+
+# Ports
+PORT_WEBSITE=3000
+PORT_ADMIN=3001
+PORT_DB=3002
