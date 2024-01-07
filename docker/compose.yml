@@ -3,7 +3,7 @@ version: "3"
 services:
   # https://www.mysql.com/
   db:
-    container_name: database
+    container_name: ows-database
     platform: linux/x86_64
     build:
       context: .
@@ -17,14 +17,14 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       - ./db/my.cnf:/etc/mysql/my.cnf
-      - database:/var/lib/mysql
+      - ows-database:/var/lib/mysql
     networks:
       - internal
-      - mysql-phpmyadmin
+      - ows-phpmyadmin
 
   # https://www.phpmyadmin.net/
   phpmyadmin:
-    container_name: phpmyadmin
+    container_name: ows-phpmyadmin
     depends_on:
       - db
     image: phpmyadmin
@@ -37,11 +37,11 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       UPLOAD_LIMIT: 25M
     networks:
-      - mysql-phpmyadmin
+      - ows-phpmyadmin
 
   # https://www.php.net/
   php:
-    container_name: php
+    container_name: ows-php
     depends_on:
       - db
     build:
@@ -60,7 +60,7 @@ services:
   composer:
     depends_on:
       - php
-    container_name: composer
+    container_name: ows-composer
     build:
       context: .
       dockerfile: composer/Dockerfile
@@ -72,7 +72,7 @@ services:
 
   # https://nginx.org/
   nginx:
-    container_name: nginx
+    container_name: ows-nginx
     depends_on:
       - composer
     build:
@@ -90,9 +90,9 @@ services:
       - internal
 
 networks:
-  mysql-phpmyadmin:
+  ows-phpmyadmin:
   internal:
     driver: bridge
 
 volumes:
-  database:
+  ows-database:
