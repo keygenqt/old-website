@@ -1,5 +1,3 @@
-COMPOSE_PROJECT_NAME=old-website
-
 # DB
 DB_DATABASE=old_website
 DB_USER=user_name

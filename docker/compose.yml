@@ -1,9 +1,9 @@
 version: "3"
+name: old-website
 
 services:
-  # https://www.mysql.com/
   db:
-    container_name: ows-database
+    container_name: old-website-db
     platform: linux/x86_64
     build:
       context: .
@@ -17,14 +17,13 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       - ./db/my.cnf:/etc/mysql/my.cnf
-      - ows-database:/var/lib/mysql
+      - old-website-db:/var/lib/mysql
     networks:
       - internal
-      - ows-phpmyadmin
+      - old-website-phpmyadmin
 
-  # https://www.phpmyadmin.net/
   phpmyadmin:
-    container_name: ows-phpmyadmin
+    container_name: old-website-phpmyadmin
     depends_on:
       - db
     image: phpmyadmin
@@ -37,11 +36,10 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       UPLOAD_LIMIT: 25M
     networks:
-      - ows-phpmyadmin
+      - old-website-phpmyadmin
 
-  # https://www.php.net/
   php:
-    container_name: ows-php
+    container_name: old-website-php
     depends_on:
       - db
     build:
@@ -56,11 +54,10 @@ services:
     networks:
       - internal
 
-  # https://getcomposer.org/
   composer:
     depends_on:
       - php
-    container_name: ows-composer
+    container_name: old-website-composer
     build:
       context: .
       dockerfile: composer/Dockerfile
@@ -70,9 +67,8 @@ services:
     volumes:
       - ../:/var/www/src
 
-  # https://nginx.org/
   nginx:
-    container_name: ows-nginx
+    container_name: old-website-nginx
     depends_on:
       - composer
     build:
@@ -90,9 +86,9 @@ services:
       - internal
 
 networks:
-  ows-phpmyadmin:
+  old-website-phpmyadmin:
   internal:
     driver: bridge
 
 volumes:
-  ows-database:
+  old-website-db:
